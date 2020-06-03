@@ -9,11 +9,11 @@ export default class Annular extends Base {
     static icon = icon;
 
     compute() {
-        const { nodes, links } = this.getStore();
+        const { nodes, links } = this.$store;
         const layout = new Layout();
         const { positions, origin } = layout.layout(nodes, links);
 
-        const center = this.getScene().getCenter();
+        const center = this.$scene.getCenter();
         const offsetX = center[0] - origin.x;
         const offsetY = center[1] - origin.y;
 
@@ -22,6 +22,6 @@ export default class Annular extends Base {
             const y = positions[i].y + offsetY;
             node.position = [x, y];
         });
-        this.setStore(this.getStore());
+        this.setStore(this.$store);
     }
 }

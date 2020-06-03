@@ -8,33 +8,42 @@ export default class Base {
     static pluginName = '';
 
     $chart;
-    $zr;
-    $config;
-    $painter;
-    $scene;
-    $util;
-    $event;
-    $store;
-    $plugin;
 
     boxID;
     dependLoaded = true;  // 依赖是否都成功加载
 
     constructor(chart, boxID) {
         this.$chart = chart;
-        this.$zr = chart.zr;
-        this.$config = chart.config;
-        this.$event = chart.event;
-        this.$painter = chart.painter;
-        this.$scene = chart.scene;
-        this.$util = chart.util;
-        this.$store = chart.store;
-        this.$plugin = chart.plugin;
 
         this.boxID = boxID;
 
         this.setConfig();
         this.newDependency();
+    }
+
+    get $zr() {
+        return this.$chart.zr;
+    }
+    get $config() {
+        return this.$chart.config;
+    }
+    get $event() {
+        return this.$chart.event;
+    }
+    get $painter() {
+        return this.$chart.painter;
+    }
+    get $scene() {
+        return this.$chart.scene;
+    }
+    get $util() {
+        return this.$chart.util;
+    }
+    get $store() {
+        return this.$chart.store;
+    }
+    get $plugin() {
+        return this.$chart.plugin;
     }
 
     get config() {

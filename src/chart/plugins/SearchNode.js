@@ -73,7 +73,7 @@ export default class SearchNode extends Base {
 
     searchNode() {
         const name = this.input.value;
-        const { nodes } = this.$chart.getStore();
+        const { nodes } = this.$store;
         let nodesID = [];
         nodes.forEach((node) => {
             if (node.name.includes(name)) {

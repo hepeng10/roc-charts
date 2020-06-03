@@ -11,8 +11,8 @@ export default class Circle extends Base {
     static icon = icon;
 
     compute() {
-        let { nodes, links } = this.getStore();
-        const center = this.getScene().getCenter();
+        let { nodes, links } = this.$store;
+        const center = this.$scene.getCenter();
         const info = {
             center,
             size: chartConfig

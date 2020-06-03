@@ -11,7 +11,6 @@ import icon from '../images/pluginIcon/lasso.svg';
 export default class LassoSelect extends Base {
     static pluginName = 'lasso';
 
-    $zr;
     group;
     btn;
     points = [];  // 绘制选择框的所有坐标
@@ -45,7 +44,6 @@ export default class LassoSelect extends Base {
     }
 
     initPainter() {
-        this.$zr = this.$chart.zr;
         this.group = new zr.Group();
 
         const mousemove = (e) => {
@@ -100,7 +98,7 @@ export default class LassoSelect extends Base {
     }
     // 获取选框中的节点
     getSelectedNodes() {
-        const store = this.$chart.getStore();
+        const store = this.$store;
         const scene = this.$chart.scene;
         const { offsetX, offsetY, scale } = scene;
         const nodes = store.nodes;

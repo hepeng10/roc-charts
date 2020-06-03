@@ -14,6 +14,28 @@ export default class Base {
         this.setConfig();
     }
 
+    get $zr() {
+        return this.$chart.zr;
+    }
+    get $config() {
+        return this.$chart.config;
+    }
+    get $event() {
+        return this.$chart.event;
+    }
+    get $painter() {
+        return this.$chart.painter;
+    }
+    get $scene() {
+        return this.$chart.scene;
+    }
+    get $util() {
+        return this.$chart.util;
+    }
+    get $store() {
+        return this.$chart.store;
+    }
+
     get config() {
         return gof(this.$$chart.config, {})(this.constructor.chartName)();
     }
@@ -32,24 +54,6 @@ export default class Base {
         return {};
     }
 
-    getZr() {
-        return this.$chart.zr;
-    }
-    getStore() {
-        return this.$chart.store;
-    }
-    getPainter() {
-        return this.$chart.painter;
-    }
-    getScene() {
-        return this.$chart.scene;
-    }
-    getEvent() {
-        return this.$chart.event;
-    }
-    getChartConfig() {
-        return this.$chart.config;
-    }
     // 提供给图谱 charts 的方法，用来修改 store 并画图
     setStore(store, strengthen = false) {
         this.$chart.setStore(store, strengthen);

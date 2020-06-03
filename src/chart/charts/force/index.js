@@ -44,7 +44,7 @@ export default class Force extends Base {
     }
 
     calcPosition() {
-        let { nodes, links } = this.getStore();
+        let { nodes, links } = this.$store;
 
         links.forEach(item => {
             item.source = item.from;
@@ -61,8 +61,8 @@ export default class Force extends Base {
     }
 
     setForce(nodes, links) {
-        const width = this.getScene().getWidth();
-        const height = this.getScene().getHeight();
+        const width = this.$scene.getWidth();
+        const height = this.$scene.getHeight();
 
         this.force = layout(nodes, links, {
             center: [width / 2, height / 2],  // 设置画布中心为重心
@@ -74,7 +74,7 @@ export default class Force extends Base {
     }
 
     onTick() {
-        let { nodes } = this.getStore();
+        let { nodes } = this.$store;
         this.force.on('tick', () => {
             this.count++;
             if (this.animation) {
@@ -117,7 +117,7 @@ export default class Force extends Base {
 
     // 将力导向算法计算的 x,y 赋值给 position
     reRenderNodes() {
-        const { nodes } = this.getStore();
+        const { nodes } = this.$store;
         nodes.forEach(node => {
             // 力导向动画开启的时候，要修改 prePosition
             if (this.animation) {
@@ -184,8 +184,8 @@ export default class Force extends Base {
             x = xm;
             y = ym;
             // 鼠标移动距离除以缩放系数，得到节点应该移动的距离
-            const nodeOffsetX = offsetX / this.getScene().scale;
-            const nodeOffsetY = offsetY / this.getScene().scale;
+            const nodeOffsetX = offsetX / this.$scene.scale;
+            const nodeOffsetY = offsetY / this.$scene.scale;
             const newPositionX = node.x + nodeOffsetX;
             const newPositionY = node.y + nodeOffsetY;
             node.fx = newPositionX;
@@ -205,7 +205,7 @@ export default class Force extends Base {
             }
         };
 
-        this.getZr().on('mousedown', this.mousedown);
+        this.$zr.on('mousedown', this.mousedown);
     }
 
     compute() {
@@ -231,8 +231,8 @@ export default class Force extends Base {
         this.stop();
         this.force = null;
         if (this.mousedown) {
-            // mousedown 存在时才 off，否则 this.getZr().off('mousedown') 会将所有的 mousedown 都 off，导致 painter 里的也被 off（zrender off 方法第二个参数为空则清空所有相应事件）
-            this.getZr().off('mousedown', this.mousedown);
+            // mousedown 存在时才 off，否则 this.$zr.off('mousedown') 会将所有的 mousedown 都 off，导致 painter 里的也被 off（zrender off 方法第二个参数为空则清空所有相应事件）
+            this.$zr.off('mousedown', this.mousedown);
         }
         if (this.mouseup) {
             document.removeEventListener('mouseup', this.mouseup, false);

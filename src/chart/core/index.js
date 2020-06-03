@@ -36,7 +36,7 @@ class Core {
 
     selectedNodes = [];
 
-    static register(chartClass) {
+    static registerChart(chartClass) {
         if (chartClass.chartName) {
             Chart.register(chartClass);
         } else {

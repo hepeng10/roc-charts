@@ -5,6 +5,6 @@ import Force from './force';
 import Annular from './annular';
 import Circle from './circle';
 
-Chart.register(Force);
-Chart.register(Annular);
-Chart.register(Circle);
+Chart.registerChart(Force);
+Chart.registerChart(Annular);
+Chart.registerChart(Circle);
