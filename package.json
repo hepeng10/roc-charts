@@ -24,6 +24,7 @@
     "react-motion": "^0.5.2",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
+    "roc-charts": "^1.0.0",
     "zrender": "^4.0.7"
   },
   "devDependencies": {

@@ -12,7 +12,9 @@
 
 **基本用法：**
 ```javascript
-import Chart from '../../chart';  // 引入框架
+import Chart from '../../chart';  // 本地引入
+or
+import Chart from 'roc-charts';  // 安装 npm 包引入
 
 
 const chart = new Chart({

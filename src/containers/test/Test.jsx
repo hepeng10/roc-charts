@@ -1,6 +1,7 @@
 import styles from './test.less';
 import React, { Component } from 'react';
 
+// import Chart from 'roc-charts';
 import Chart from '../../chart';
 
 import icon1 from '@images/node/head1.svg';
