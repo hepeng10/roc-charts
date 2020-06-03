@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="168px" height="167px" viewBox="0 0 168 167" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组" transform="translate(2.000000, -20.000000)">
+            <line x1="0.5" y1="159.5" x2="163.5" y2="159.5" id="直线" stroke="#DDDDDD" stroke-width="15" stroke-linecap="square"></line>
+            <text id="3" font-family="PingFangSC-Semibold, PingFang SC" font-size="120" font-weight="500" fill="#DDDDDD">
+                <tspan x="46" y="127">3</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

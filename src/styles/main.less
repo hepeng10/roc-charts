@@ -1,0 +1,49 @@
+/**
+ * 网站基础样式, 一般不用调整
+ */
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    background: #eff3f6;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+}
+body, button, input, select, textarea {
+    font: 14px/1.5 "Microsoft Yahei", "PingFang SC", Helvetica, Arial, Simsun, sans-serif !important;
+}
+html body {
+    font-size: 14px;
+}
+
+input {
+    border: 0;
+    border-radius: 4px;
+    outline: none;
+}
+
+input::placeholder {
+    color:  #AEBAC6;
+}
+// 去除 chrome 上保存密码的 input 框的屎黄色背景
+input:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    border-style: none;
+    box-sizing: border-box;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+a {
+    color: inherit;
+}

@@ -1,0 +1,127 @@
+:global {
+    .hide-roc {
+        display: none !important;
+    }
+    /* Loading */
+    .chartLoading-roc {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -20px;
+        margin-top: -20px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        z-index: 9999;
+        display: none;
+        animation: chart-rotate 2.0s infinite linear;
+    }
+    .chartLoading-roc .chartDot1-roc, .chartLoading-roc .chartDot2-roc {
+        width: 60%;
+        height: 60%;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        background-color: #1dace8;
+        border-radius: 100%;
+
+        animation: chart-bounce 2.0s infinite ease-in-out;
+    }
+    .chartLoading-roc .chartDot2-roc {
+        top: auto;
+        bottom: 0;
+        animation-delay: -1.0s;
+    }
+    @keyframes ~":global(chart-rotate)" {
+        100% {
+            transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+        }
+    }
+    @keyframes ~":global(chart-bounce)" {
+        0%, 100% {
+            transform: scale(0.0);
+            -webkit-transform: scale(0.0);
+        }
+        50% {
+            transform: scale(1.0);
+            -webkit-transform: scale(1.0);
+        }
+    }
+
+    /* 工具栏 container */
+    .chartToolbar-roc {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #535353;
+
+    }
+
+    // 全屏时添加样式
+    .chartFullScreen-roc {
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 9999 !important;
+    }
+
+    // 右键菜单样式
+    .contextMenu-roc {
+        padding: 3px 0;
+        border: 1px solid #e3e4e5;
+        background: #fff;
+        box-shadow: 4px 4px 4px -2px #666;
+        .menu-item-roc {
+            padding: 6px 16px;
+            font-size: 14px;
+            user-select: none;
+        }
+        .menu-item-roc:hover {
+            background: #e3e4e5;
+        }
+    }
+
+    // 节点浮动信息样式
+    .nodeInfo-roc {
+        max-width: 300px;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #fff;
+        background-color: rgba(50, 50, 50, 0.8);
+        word-wrap: break-word;
+        transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+        z-index: 9999999;
+    }
+
+    // 搜索节点
+    .searchNodeBtn-roc {
+        .searchNodeContainer-roc {
+            position: absolute;
+            left: -1px;
+            top: 35px;
+            display: none;
+        }
+        .searchNodeInput-roc {
+            width: 160px;
+            padding: 3px 10px;
+            border: 1px solid #aaa;
+        }
+        .searchNodeSearchBtn-roc {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: url('../images/search.svg') no-repeat;
+            background-size: 60%;
+            background-position: center;
+        }
+    }
+}

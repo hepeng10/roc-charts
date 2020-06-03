@@ -1,0 +1,15 @@
+{
+    "extends": [".eslintrc.json"],
+    "rules": {
+        "no-empty": "error",
+        "no-empty-function": "error",
+        "no-multiple-empty-lines": ["error", {"max": 1}],
+        "indent": ["off", 4, {"SwitchCase": 1}],
+        "no-debugger": "error",
+        "no-alert": "error",
+        "no-eval": "error",
+        "spaced-comment": "error",
+        "no-unused-vars": "off",
+        "react/jsx-uses-vars": "error"
+    }
+}

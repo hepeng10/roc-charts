@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="463px" height="463px" viewBox="0 0 463 463" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组">
+            <circle id="椭圆形" fill="#DDDDDD" cx="231.5" cy="31.5" r="31.5"></circle>
+            <circle id="椭圆形" fill="#DDDDDD" cx="31.5" cy="231.5" r="31.5"></circle>
+            <circle id="椭圆形" fill="#DDDDDD" cx="91.5" cy="369.5" r="31.5"></circle>
+            <circle id="椭圆形" fill="#DDDDDD" cx="375.5" cy="366.5" r="31.5"></circle>
+            <circle id="椭圆形" fill="#DDDDDD" cx="431.5" cy="231.5" r="31.5"></circle>
+            <circle id="椭圆形" fill="#DDDDDD" cx="231.5" cy="431.5" r="31.5"></circle>
+            <circle id="椭圆形" fill="#DDDDDD" cx="89.5" cy="90.5" r="31.5"></circle>
+            <circle id="椭圆形" fill="#DDDDDD" cx="375.5" cy="94.5" r="31.5"></circle>
+            <line x1="432" y1="232" x2="375.5" y2="94.5" id="直线" stroke="#DDDDDD" stroke-width="10" stroke-linecap="square"></line>
+            <line x1="376" y1="367" x2="432" y2="232" id="直线" stroke="#DDDDDD" stroke-width="10" stroke-linecap="square"></line>
+            <line x1="232" y1="432" x2="376" y2="367" id="直线" stroke="#DDDDDD" stroke-width="10" stroke-linecap="square"></line>
+            <line x1="376" y1="95" x2="232" y2="32" id="直线" stroke="#DDDDDD" stroke-width="10" stroke-linecap="square"></line>
+            <line x1="232" y1="32" x2="90" y2="91" id="直线" stroke="#DDDDDD" stroke-width="10" stroke-linecap="square"></line>
+            <line x1="90" y1="91" x2="32" y2="232" id="直线" stroke="#DDDDDD" stroke-width="10" stroke-linecap="square"></line>
+            <line x1="32" y1="232" x2="92" y2="370" id="直线" stroke="#DDDDDD" stroke-width="10" stroke-linecap="square"></line>
+            <line x1="92" y1="370" x2="232" y2="432" id="直线" stroke="#DDDDDD" stroke-width="10" stroke-linecap="square"></line>
+        </g>
+    </g>
+</svg>
