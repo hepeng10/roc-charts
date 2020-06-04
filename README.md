@@ -96,4 +96,4 @@ class CustomPlugin extends PluginBase {
 Chart.registerPlugin(CustomPlugin);
 ```
 
-完整文档请点击：[https://hepeng10.github.io/roc-charts-document/](https://hepeng10.github.io/roc-charts-document/)
+[**点击查看完整文档**](https://hepeng10.github.io/roc-charts-document/)
