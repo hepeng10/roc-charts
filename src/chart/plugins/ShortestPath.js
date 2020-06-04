@@ -34,18 +34,6 @@ export default class ShortestPath extends Base {
             return;
         }
 
-        /*
-        const { links } = this.$chart.store;
-        if (links.length > 1000) {
-            console.log(`路径共${links.length}条`);
-            const res = confirm('路径太多，继续查找可能导致浏览器卡死，是否继续？')
-            if (!res) {
-                this.$chart.hideLoading();
-                return;
-            }
-        }
-        */
-
         setTimeout(() => {
             const pathArr = this.$chart.util.breadthFindShortestPath(ids[0], ids[1]);
             // console.log(pathArr);

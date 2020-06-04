@@ -11,3 +11,4 @@
 .DS_STORE
 package-lock.json
 /package-lock.json
+docs/.vuepress/dist

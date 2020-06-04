@@ -56,9 +56,7 @@ export default class Test extends Component {
                 link.style = {};
                 link.style.dashed = true;
             }
-            link.data = {
-                text: link.relation
-            };
+            link.text = link.relation;
         });
 
         return { nodes, links };

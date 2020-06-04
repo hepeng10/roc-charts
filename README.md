@@ -1,12 +1,12 @@
 ## 关于此框架
 此框架基于 zrender 开发，用于展示节点之间的关系。关系的呈现（图谱布局）主要还是由使用者决定，可以很简单的将自己的布局算法加入到此框架中，而框架更多的作用是实现图谱操作功能，此框架内置了一些常用功能，也提供了插件机制可开发更多功能。  
 
-[**点击查看在线 DEMO**](https://hepeng10.github.io/RCharts-demo/#/)
+[**点击查看在线 Demo**](https://hepeng10.github.io/roc-charts-demo/#/)
 
 ## 框架的使用
 项目中 src/containers/Test/test.jsx 文件有基本的用法。
 框架的文件位于 src/chart 目录。
-可下载项目，安装依赖后，运行 npm start 查看效果
+可下载项目，安装依赖后（推荐使用 yarn），运行 yarn start 查看效果
 
 **基本用法：**
 ```javascript
@@ -37,10 +37,9 @@ const chartData = {
         {
             from: 1,  // 开始节点 id
             to: 2,  // 结束节点 id
-            data: {
-                text: 'yyy',  // 线上的文字（可选）
-            }
+            text: 'yyy',  // 线上的文字（可选）
         }
+        ...
     ]
 }
 ```
@@ -54,9 +53,9 @@ import Chart, { ChartBase } from 'roc-charts';
 // 创建自己算法类，继承 ChartBase，通过 compute 方法计算坐标
 class CustomChart extends ChartBase {
     // 必须的静态属性，图谱中会用到
-    static chartName = 'custom';  // 设置图谱的名称
-    static chartZhName = '自定义图谱';  // 设置中文名称
-    static icon = icon;  // 设置 base64 图标
+    static chartName = 'customChart';  // 设置图谱的名称，初始化图谱及切换图谱使用
+    static chartZhName = '自定义图谱';  // 设置中文名称，切换图谱插件中鼠标悬停显示
+    static icon = icon;  // 设置 base64 图标，切换图谱插件使用
     
     // compute 方法中获取 store，通过算法修改 store 中 nodes 的 position 实现自定义图谱布局
     compute() {
@@ -74,7 +73,7 @@ Chart.registerChart(CustomChart);
 
 const chart = new Chart({
     id: 'xx',
-    type: 'custom',  // 上面设置的图谱名称
+    type: 'customChart',  // 上面设置的图谱名称
     data: originData
 });
 ```
@@ -85,6 +84,9 @@ const chart = new Chart({
 import Chart, { PluginBase } from 'roc-charts';
 
 class CustomPlugin extends PluginBase {
+    // 设置插件的名称
+    static pluginName = 'customPlugin';
+    
     // 实现插件功能
     init() {
         ...
@@ -93,4 +95,5 @@ class CustomPlugin extends PluginBase {
 // 注册自定义插件
 Chart.registerPlugin(CustomPlugin);
 ```
-### 文档完善中...
+
+完整文档请点击：[https://hepeng10.github.io/roc-charts-document/](https://hepeng10.github.io/roc-charts-document/)

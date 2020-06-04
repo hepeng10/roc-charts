@@ -247,7 +247,7 @@ export default {
         if (gof(link)('data')('text')() && !gof(link)('style')('hideText')()) {
             const textX = (x1 + x2) / 2;
             const textY = (y1 + y2) / 2;
-            const text = this.text(linefeed(link.data.text, 10), { position: [textX, textY], style: { opacity, ...link.style } }, [fromNode.position, toNode.position]);
+            const text = this.text(linefeed(link.text, 10), { position: [textX, textY], style: { opacity, ...link.style } }, [fromNode.position, toNode.position]);
             g.add(text);
         }
 
@@ -317,7 +317,7 @@ export default {
         // 添加文字
         const cp2 = getControlPos(p1[0], p1[1], p2[0], p2[1], 10);  // 控制点偏移量的一半作为文字的坐标，文字基本上就在贝塞尔曲线上
         if (gof(link)('data')('text')()) {
-            const text = this.text(linefeed(link.data.text, 10), { position: [cp2[0], cp2[1]], style: { opacity, textVerticalAlign: 'middle', ...link.style } }, [fromNode.position, toNode.position]);
+            const text = this.text(linefeed(link.text, 10), { position: [cp2[0], cp2[1]], style: { opacity, textVerticalAlign: 'middle', ...link.style } }, [fromNode.position, toNode.position]);
             g.add(text);
         }
 
@@ -372,7 +372,7 @@ export default {
         if (gof(link)('data')('text')() && !gof(link)('style')('hideText')()) {
             const textX = (x1 + x2) / 2;
             const textY = (y1 + y2) / 2;
-            const text = this.text(linefeed(link.data.text, 10), { position: [textX, textY], style: { opacity, ...link.style } }, [fromNode.position, toNode.position]);
+            const text = this.text(linefeed(link.text, 10), { position: [textX, textY], style: { opacity, ...link.style } }, [fromNode.position, toNode.position]);
             g.add(text);
         }
 

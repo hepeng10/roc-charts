@@ -1,27 +1,22 @@
 {
-  "name": "rchart",
+  "name": "roc-chart",
   "version": "1.0.0",
   "scripts": {
     "start": "cross-env ENV=DEV webpack-dev-server --inline --progress --config webpack.config.dev.babel.js",
     "build": "cross-env ENV=PROD webpack --config webpack.config.prod.babel.js --progress --display-error-details",
-    "lib": "cross-env ENV=PROD webpack --config webpack.config.lib.babel.js --progress --display-error-details"
+    "lib": "cross-env ENV=PROD webpack --config webpack.config.lib.babel.js --progress --display-error-details",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "license": "ISC",
   "dependencies": {
-    "antd-mobile": "^2.2.14",
-    "axios": "^0.18.1",
     "classnames": "^2.2.5",
     "d3-force": "^1.1.2",
     "fastclick": "^1.0.6",
     "file-saver": "^2.0.2",
     "get-object-field": "^1.0.7",
-    "mobx": "^4.9.4",
-    "mobx-react": "^5.4.4",
-    "moment": "^2.20.1",
     "react": "^16.8.6",
-    "react-collapse": "^4.0.3",
     "react-dom": "^16.8.6",
-    "react-motion": "^0.5.2",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "roc-charts": "^1.0.0",
@@ -71,12 +66,10 @@
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "url-loader": "^1.1.2",
+    "vuepress": "^1.5.0",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1",
     "webpack-merge": "^4.1.1"
-  },
-  "pre-commit": [
-    "lint"
-  ]
+  }
 }
