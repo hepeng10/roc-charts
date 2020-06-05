@@ -8,11 +8,11 @@ chart.init();
 
 // 当我们实例化图谱后便可调用图谱的 API 用来操作图谱，如：
 chart.showLoading();  // 显示图谱的 loading动画
+chart.util.highlightNodes([id1, id2, id3]);  // 高亮一组节点
 ```
 
-## API 详细说明
 API 包括两种类型，一种是通过 chart 直接调用，一种是通过 chart.util 调用。
-### chart API
+## chart API
 通过 chart 直接调用，如：
 ```js
 chart.showLoading();
@@ -23,7 +23,7 @@ chart.showLoading();
 | showLoading | 无 | 显示图谱 loading 动画 |
 | hideLoading | 无 | 隐藏图谱 loading 动画 |
 | extend | (nodeId: str\|num, nodes: arr, links: arr)<br/>node: 扩展源节点的 id<br/>nodes: 添加的节点，同创建图谱 data 里的 nodes<br/>links: 添加的线，同创建图谱 data 里的 links| 扩展（添加）节点和线 |
-| getStore | 无 | 获取图谱 store 数据 |
+| getStore | 无 | 获取图谱 store 数据，此数据由 data 生成 |
 | getScale | 无 | 获取当前缩放率 |
 | setScale | (scale: num) | 修改缩放率 |
 | setConfig | (config: obj) obj 为创建图谱时 config 中的 core | 修改 core 配置 |
@@ -33,7 +33,7 @@ chart.showLoading();
 | resize | 无 | 容器大小改变后调用修改画布大小 |
 | destroy | 无 | 销毁图谱 |
 
-### util API
+## util API
 通过 chart.util 调用，如：
 ```js
 chart.util.highlightNodes([id1, id2, id3]);

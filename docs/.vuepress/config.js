@@ -27,6 +27,8 @@ module.exports = {
                     '/data',
                     '/config',
                     '/chartAPI',
+                    '/charts',
+                    '/plugins',
                 ]
             },
         ],

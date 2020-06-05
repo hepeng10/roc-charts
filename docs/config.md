@@ -1,4 +1,4 @@
-# config 配置
+# 图谱配置 - config
 调用 chart.init() 方法的时候，可接受一个 config 对象，用于配置图谱的一些功能。
 其中包括 core, chart, plugin 三类配置。
 * core: 图谱的固定几项核心配置。
@@ -25,13 +25,14 @@ chart.init({
         dynamicLineWidth: true,  // 线的粗细是否随缩放率变化
         initPlugin: true,  // 是否启用插件，为 false 时所有插件都不会实例化
     },
-    // 各个图谱实现的配置
+    // 所有图谱布局类型的配置
     chart: {
         // 字段名是图谱类的名称：static chartName = 'force'
+        // force 力导图的配置
         force: {
             tickCount: 300  // 配置力导向图的计算次数
         },
-        ...  // 其它图谱配置
+        ...  // 其它图布局配置
     },
     // 插件的配置
     plugin: {

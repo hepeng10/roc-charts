@@ -12,6 +12,12 @@ export default class ChangeLineWidth extends Base {
 
     select;
 
+    defaultConfig() {
+        return {
+            width: 1,
+        };
+    }
+
     init() {
         this.initSelect();
         this.select.onChange(value => {
@@ -20,7 +26,7 @@ export default class ChangeLineWidth extends Base {
     }
 
     initSelect() {
-        const defaultLineW = this.config || 1;
+        const defaultLineW = this.config.width;
         const icons = [icon1, icon2, icon3, icon4];
 
         let options = [];

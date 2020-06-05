@@ -5,6 +5,8 @@
 
 [**点击查看在线 Demo**](https://hepeng10.github.io/roc-charts-demo/#/)
 
+[**点击查看完整文档**](https://hepeng10.github.io/roc-charts-document/)
+
 ## 框架的使用
 src/containers/Test/test.jsx 文件有基本的用法。
 
@@ -102,5 +104,3 @@ class CustomPlugin extends PluginBase {
 // 注册自定义插件
 Chart.registerPlugin(CustomPlugin);
 ```
-
-[**点击查看完整文档**](https://hepeng10.github.io/roc-charts-document/)

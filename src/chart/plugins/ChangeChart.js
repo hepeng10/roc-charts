@@ -7,6 +7,12 @@ export default class ChangeChart extends Base {
 
     select;
 
+    defaultConfig() {
+        return {
+            charts: [],
+        };
+    }
+
     init() {
         this.initSelect();
         this.select.onChange(value => {

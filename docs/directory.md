@@ -2,7 +2,7 @@
 ```
 └── src
     ├── chart  (roc-charts 根目录，所有图谱文件都在这里面)
-    │   ├── charts  (各种图谱的坐标算法具体实现)
+    │   ├── charts  (各种图谱的布局算法具体实现)
     │   │   ├── annular
     │   │   ├── circle
     │   │   └── force

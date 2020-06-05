@@ -1,4 +1,4 @@
-# data 数据
+# 图谱数据 - data
 data 是传入 roc-charts 的用于绘制节点和连线的数据，包括 nodes 和 links 两个数组对象，nodes 数组里的每一个对象是一个节点，links 数组里的每一个对象是一条连线，他们都有一些可选属性，具体属性如下：
 ```js
 import Chart from 'roc-charts';
@@ -35,7 +35,7 @@ const data = {
             from: 'id1',  // 起始 node 节点 id（必选）
             to: 'id2',  // 目标 node 节点 id （必选）
             text: 'xxx',  // 线上的文字
-            directionless: false,  // 是否为无向线（直线没有箭头）
+            directionless: false,  // 是否为无向线（没有箭头的直线）
             style: {
                 dashed: false,  // 是否为虚线，默认为 false
                 // 其它 zrender 的样式，详见：https://ecomfe.github.io/zrender-doc/public/api.html#zrenderdisplayable 表格里的 opts.style
