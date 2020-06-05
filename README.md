@@ -1,20 +1,26 @@
 ## 关于此框架
-此框架基于 zrender 开发，用于展示节点之间的关系。关系的呈现（图谱布局）主要还是由使用者决定，可以很简单的将自己的布局算法加入到此框架中，而框架更多的作用是实现图谱操作功能，此框架内置了一些常用功能，也提供了插件机制可开发更多功能。  
+此框架基于 zrender 开发，用于展示节点之间的关系。关系的呈现（图谱布局）主要还是由使用者决定，可以很简单的将自己的布局算法加入到此框架中，而框架更多的作用是实现图谱操作功能，此框架内置了一些常用功能，也提供了插件机可供开发更多功能。
+  
+![](./chart.png)  
 
 [**点击查看在线 Demo**](https://hepeng10.github.io/roc-charts-demo/#/)
 
 ## 框架的使用
-项目中 src/containers/Test/test.jsx 文件有基本的用法。
-框架的文件位于 src/chart 目录。
-可下载项目，安装依赖后（推荐使用 yarn），运行 yarn start 查看效果
+src/containers/Test/test.jsx 文件有基本的用法。
 
-**基本用法：**
-```javascript
-import Chart from '../../chart';  // 本地引入
-or
-import Chart from 'roc-charts';  // 安装 npm 包引入
+可下载项目，安装依赖后（推荐使用 yarn 安装），运行 yarn start 查看效果。
 
-
+### 安装 roc-charts:
+yarn add roc-charts  
+```js
+import Chart from 'roc-charts;
+```
+或者下载项目，拷贝出 src/chart 目录到自己的项目中使用相对路径引入
+```js
+import Chart from './chart';  // 本地引入
+```
+**Chart 的使用**
+```js
 const chart = new Chart({
     id: 'chart',  // 绘制图谱 dom 的 id
     type: 'force',  // 图谱类型
@@ -22,8 +28,9 @@ const chart = new Chart({
 });
 chart.init(config);  // 调用 init 方法绘图，配置项可选
 ```
-## 基本参数说明
-接收的 chartData 基本数据格式
+
+### 基本参数说明
+图谱接收的 data 数据为一个对象，包括 nodes（节点） 和 links（节点之间的连线） 两个数组
 ```javascript
 const chartData = {
     nodes: [
@@ -43,7 +50,7 @@ const chartData = {
     ]
 }
 ```
-demo 中有相对完善的格式，暂时请自行查看。
+将包含 nodes 和 links 的对象传入 data 中就能绘图了。
 
 ## 图谱扩展
 **自定义图谱：**

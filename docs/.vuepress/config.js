@@ -24,8 +24,9 @@ module.exports = {
                 title: '进阶',
                 collapsable: false,
                 children: [
-                    '/node',
-                    '/link',
+                    '/data',
+                    '/config',
+                    '/chartAPI',
                 ]
             },
         ],

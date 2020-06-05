@@ -2,14 +2,19 @@
 ### 基本用法
 src/containers/Test/test.jsx 文件有基本的用法。
 
-可下载项目，安装依赖后（推荐使用 yarn 安装），运行 yarn start 查看效果
+可下载项目，安装依赖后（推荐使用 yarn 安装），运行 yarn start 查看效果。
 
+### 安装 roc-charts:
+yarn add roc-charts  
 ```js
-import Chart from '../../chart';  // 本地引入
-or
-import Chart from 'roc-charts';  // 安装 npm 包引入
-
-
+import Chart from 'roc-charts;
+```
+或者下载项目，拷贝出 src/chart 目录到自己的项目中使用相对路径引入
+```js
+import Chart from './chart';  // 本地引入
+```
+**Chart 的使用**
+```js
 const chart = new Chart({
     id: 'chart',  // 绘制图谱 dom 的 id
     type: 'force',  // 图谱类型

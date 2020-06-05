@@ -278,11 +278,12 @@ class Core {
     }
     /**
      * 扩展方法
-     * @param {object} node 扩展点击的 node
+     * @param {string} nodeId 扩展点击的节点的 id
      * @param {array} nodes 扩展出的 nodes
      * @param {array} links 扩展出的 links
     **/
-    extend(node, nodes = [], links = []) {
+    extend(nodeId, nodes = [], links = []) {
+        const node = this.store.nodes.find(node => node.id === nodeId);
         // 扩展出来的 node 可能在已有的 store 中，需要清理
         for (let i = 0; i < nodes.length; i++) {
             for (let j = 0; j < this.store.nodes.length; j++) {

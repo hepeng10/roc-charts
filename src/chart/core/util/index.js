@@ -57,7 +57,7 @@ export default class Util extends Base {
         this.getSelectedNodes();
         this.refresh();
     }
-    // 移除边框
+    // 移除选中的节点
     removeSelect(nodesId) {
         this.$painter.removeSelect(nodesId);
         this.getSelectedNodes();
@@ -73,6 +73,7 @@ export default class Util extends Base {
                 this.$chart.selectedNodes.push(node.id);
             }
         });
+        return this.$chart.selectedNodes();
     }
 
     // id 是 linksKV 的字段名（id1->id2）
@@ -259,7 +260,9 @@ export default class Util extends Base {
             if (base64) {
                 saveAs(base64, 'chart.png');  // 图片太大时，控制台会有个警告，不影响使用
             }
-            cb(base64);
+            if (cb) {
+                cb(base64);
+            }
         });
     }
 
