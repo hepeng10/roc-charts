@@ -107,7 +107,7 @@ export default class Base {
         return iconBtn;
     }
 
-    // [{ value: 'xxx', label: 'yyy', selected: true }]
+    // [{ icon, value: 'xxx', label: 'yyy', selected: true }]
     createSelect(optionsArr) {
         const toolbar = document.getElementById(this.boxID);
         const iconSelect = new IconSelect(optionsArr);

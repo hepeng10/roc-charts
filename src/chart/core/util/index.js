@@ -73,7 +73,7 @@ export default class Util extends Base {
                 this.$chart.selectedNodes.push(node.id);
             }
         });
-        return this.$chart.selectedNodes();
+        return this.$chart.selectedNodes;
     }
 
     // id 是 linksKV 的字段名（id1->id2）

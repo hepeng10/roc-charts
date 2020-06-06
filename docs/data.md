@@ -10,6 +10,7 @@ const data = {
             name: '节点名称',  // 图谱中显示在节点下面的文字
             extend: false, // 右上角是否显示可扩展图标
             selected: false,  // 是否处于选中状态
+            degree: 1,  // 节点度数，主要用于层级类图
             style: {  // 节点样式
                 image: icon,  // 节点图标 dataURI
                 hide: false,  // 是否隐藏节点

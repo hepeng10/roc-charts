@@ -1,5 +1,4 @@
 import Base from '../core/plugin/Base';
-import gof from 'get-object-field';
 
 import icon from '../images/pluginIcon/disableDrag.svg';
 

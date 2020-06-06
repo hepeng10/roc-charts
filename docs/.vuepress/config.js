@@ -29,6 +29,15 @@ module.exports = {
                     '/chartAPI',
                     '/charts',
                     '/plugins',
+                    '/event',
+                ]
+            },
+            {
+                title: '深入',
+                collapsable: false,
+                children: [
+                    '/registerChart',
+                    '/registerPlugin',
                 ]
             },
         ],

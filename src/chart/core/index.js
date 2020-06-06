@@ -337,11 +337,11 @@ class Core {
         this.config.scale = scale;
         this.scene.setScale(this.config.scale);
         // 缩放后需要移动到画布中心
-        const w = this.scene.getWidth();
-        const h = this.scene.getHeight();
+        const w = this.getWidth();
+        const h = this.getHeight();
         const centerOffsetX = w / 2 * (this.config.scale - 1);
         const centerOffsetY = h / 2 * (this.config.scale - 1);
-        this.scene.move(-centerOffsetX, -centerOffsetY);
+        this.move(-centerOffsetX, -centerOffsetY);
     }
 
     getCharts() {
@@ -377,6 +377,17 @@ class Core {
 
         this._initChart(newChartConfig);
         this._lifeCircle();
+    }
+
+    getWidth() {
+        return this.scene.getWidth();
+    }
+    getHeight() {
+        return this.scene.getHeight();
+    }
+
+    move(x, y) {
+        this.scene.move(x, y);
     }
 
     // 生命周期

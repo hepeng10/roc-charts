@@ -13,7 +13,7 @@ src/containers/Test/test.jsx 文件有基本的用法。
 可下载项目，安装依赖后（推荐使用 yarn 安装），运行 yarn start 查看效果。
 
 ### 安装 roc-charts:
-yarn add roc-charts  
+yarn add roc-charts  或 npm install roc-charts
 ```js
 import Chart from 'roc-charts;
 ```
@@ -64,7 +64,7 @@ class CustomChart extends ChartBase {
     // 必须的静态属性，图谱中会用到
     static chartName = 'customChart';  // 设置图谱的名称，初始化图谱及切换图谱使用
     static chartZhName = '自定义图谱';  // 设置中文名称，切换图谱插件中鼠标悬停显示
-    static icon = icon;  // 设置 base64 图标，切换图谱插件使用
+    static icon = icon;  // 设置 dataURI 图标，切换图谱插件使用
     
     // compute 方法中获取 store，通过算法修改 store 中 nodes 的 position 实现自定义图谱布局
     compute() {
@@ -83,7 +83,7 @@ Chart.registerChart(CustomChart);
 const chart = new Chart({
     id: 'xx',
     type: 'customChart',  // 上面设置的图谱名称
-    data: originData
+    data
 });
 ```
 
@@ -104,3 +104,5 @@ class CustomPlugin extends PluginBase {
 // 注册自定义插件
 Chart.registerPlugin(CustomPlugin);
 ```
+
+[**点击查看完整文档**](https://hepeng10.github.io/roc-charts-document/)

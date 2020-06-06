@@ -28,6 +28,10 @@ chart.showLoading();
 | setScale | (scale: num) | 修改缩放率 |
 | setConfig | (config: obj) obj 为创建图谱时 config 中的 core | 修改 core 配置 |
 | changeChart | (type: str, config: obj, chartConfig: obj)<br/>type: 图谱类型<br/>config: config 中的 core 配置<br/>chartConfig: config 中的 chart 配置 | 修改图谱类型 |
+| getWidth | 无 | 获取画布宽度 |
+| getHeight | 无 | 获取画布高度 |
+| move | (x: int, y: int) | 移动图谱 |
+| addEventListener | (callback: fn) | 绑定事件，[查看详情]('/event')
 | refresh | 无 | 刷新图谱。比如通过 getStore 获取 store 后，自行修改了一些节点的 position，再调用此方法实现修改节点坐标。 |
 | reset | 无 | 复位图谱 |
 | resize | 无 | 容器大小改变后调用修改画布大小 |

@@ -35,6 +35,9 @@ export default class Base {
     get $store() {
         return this.$chart.store;
     }
+    get $plugin() {
+        return this.$chart.plugin;
+    }
 
     get config() {
         return gof(this.$$chart.config, {})(this.constructor.chartName)();
