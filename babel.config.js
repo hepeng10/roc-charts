@@ -1,13 +1,17 @@
 module.exports = (api) => {
     api.cache(true);
-    
+
     const presets = [
         ['@babel/preset-env', {
             targets: [
                 'last 2 version',
                 'ie >= 9'
             ],
-            modules: 'commonjs' // transform esm to cjs, false to keep esm.
+            // Allow importing core-js in entrypoint and use browserlist to select polyfills
+            useBuiltIns: 'entry', // https://www.cnblogs.com/amiezhang/p/11384309.html
+            corejs: 3,  // corejs version
+            // Exclude transforms that make all code slower
+            exclude: ['transform-typeof-symbol'],
         }],
         '@babel/preset-react'
     ];

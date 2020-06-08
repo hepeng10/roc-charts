@@ -14,8 +14,7 @@ function resolve(dir) {
 
 export default {
     entry: {
-        main: ['react-hot-loader/patch', './src/index.jsx'],
-        vendor: ['react', 'react-dom', 'react-router-dom']
+        main: ['./src/index.jsx']
     },
     output: {
         publicPath: '/',

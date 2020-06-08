@@ -171,7 +171,7 @@ export default class Test extends Component {
             <div className={styles.container}>
                 <div className="container">
                     <p className={styles.title}>关系图谱 Demo</p>
-                    <p className={styles.info}>此图谱框架可扩展图谱坐标算法，支持工具栏插件开发，支持移动端大部分操作。更多功能正在完善中...</p>
+                    <p className={styles.info}>此图谱框架可扩展图谱坐标算法，支持工具栏插件开发，支持移动端操作。更多功能正在完善中...</p>
                     <div className={styles.tips}>
                         <p>单击节点：高亮与此节点相关联的节点。</p>
                         <p>套索工具：圈选节点。选中的节点再次圈选为取消选择。</p>

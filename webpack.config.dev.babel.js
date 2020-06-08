@@ -12,6 +12,7 @@ const LocalServer = {
 const port = LocalServer.local.port;
 
 export default webpackMerge(baseConfig, {
+    mode: 'development',
     devtool: 'cheap-module-eval-source-map',
     module: {
         rules: [

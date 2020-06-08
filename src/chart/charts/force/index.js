@@ -12,6 +12,7 @@ import icon from '../../images/chartIcon/force.svg';
 export default class Force extends Base {
     static chartName = 'force';
     static chartZhName = '力导图';
+    static icon = icon;
 
     force = null;
     bindOnDrag = false;

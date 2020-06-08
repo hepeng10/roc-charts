@@ -42,7 +42,7 @@ export default class NodeInfo extends Base {
     specialFixed() {
         document.addEventListener('mousedown', () => {
             this.display = 'none';
-            this.dom.style = this.computeStyle();
+            this.computeStyle();
         }, false);
         document.addEventListener('mouseup', () => {
             this.preventShow = true;
@@ -95,7 +95,7 @@ export default class NodeInfo extends Base {
         this.insertInfo(info);
         this.updatePosition(e.event.pageX, e.event.pageY);
         this.display = 'block';
-        this.dom.style = this.computeStyle();
+        this.computeStyle();
     }
 
     hide() {
@@ -103,7 +103,7 @@ export default class NodeInfo extends Base {
         if (this.dom && !this.t) {
             this.t = setTimeout(() => {
                 this.display = 'none';
-                this.dom.style = this.computeStyle();
+                this.computeStyle();
             }, 200);
         }
     }
@@ -113,12 +113,15 @@ export default class NodeInfo extends Base {
     }
 
     computeStyle() {
-        return `position:absolute;top:${this.y}px;left:${this.x}px;display:${this.display};`;
+        this.dom.style.position = 'absolute';
+        this.dom.style.top = this.y + 'px';
+        this.dom.style.left = this.x + 'px';
+        this.dom.style.display = this.display;
     }
 
     updatePosition(x, y) {
         this.x = x + 20;
         this.y = y + 10;
-        this.dom.style = this.computeStyle();
+        this.computeStyle();
     }
 }
