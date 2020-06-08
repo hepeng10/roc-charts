@@ -8,7 +8,7 @@ const data = {
         {
             id: 'xxx',  // 节点的 id (必选)
             name: '节点名称',  // 图谱中显示在节点下面的文字
-            extend: false, // 右上角是否显示可扩展图标
+            extend: false, // 右上角是否显示可扩展图标。隐藏节点相关功能
             selected: false,  // 是否处于选中状态
             degree: 1,  // 节点度数，主要用于层级类图
             style: {  // 节点样式
@@ -22,11 +22,11 @@ const data = {
                 // 其它 zrender 的样式，详见：https://ecomfe.github.io/zrender-doc/public/api.html#zrenderdisplayable 表格里的 opts.style
                 ...otherZrenderStyle
             },
-            subImage: {  // 节点右上角图标
+            subImage: [{  // 节点右上角图标
                 image: subIcon,  // 图标 dataURI
                 width: 10,  // width, height 可不传，默认大小和 extend 相同
                 height: 10
-            },
+            }],
             // 其它属性，主要是一些图算法需要用到，比如圈层图中心节点需要设置 target: true
             ...otherAttr
         }

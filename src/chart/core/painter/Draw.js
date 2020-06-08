@@ -42,15 +42,27 @@ export default class Draw extends Base {
                 nodeGraph.add(rect);
             }
         }
-        if (node.subImage) {
-            const group = graph.extendIcon(node, node.subImage);
-            nodeGraph.add(group);
-        }
+
+        // 画 subImage
+        let subImg;
+        const hasSubImg = node.subImage && node.subImage.length;
+        subImg = hasSubImg ? node.subImage : [];
         // 配置中开启绘制扩展图标
         if (this.$chart.config.showExtend && node.extend) {
-            const extend = graph.extendIcon(node, { image: extendSVG });
-            nodeGraph.add(extend);
+            if (hasSubImg) {  // subImage 有的，要让扩展图标大小和 subImage 的一致
+                subImg.unshift({ ...node.subImage[0], image: extendSVG, type: 'extend' });  // 扩展标识排在第一位
+            } else {
+                subImg.unshift({ image: extendSVG, type: 'extend' });
+            }
+        } else if (subImg[0] && subImg[0].type === 'extend') {  // 删除 extend 图标
+            subImg.shift();
         }
+        subImg.forEach((item, i) => {
+            item.index = i;
+            const subIcon = graph.subIcon(node, item);
+            nodeGraph.add(subIcon);
+        });
+
         // 配置中开启动画，则需要把 position 设置为 prePosition，才能实现动画从 prePosition 向 position 移动
         if (this.$chart.config.animation) {
             nodeGraph.attr('position', node.prePosition);

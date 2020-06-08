@@ -26,11 +26,12 @@ export const nodeConfig = {
             height: 60,
         }
     },
-    extend: {
+    sub: {
         show: true,
-        r: 5,
-        width: 10,
-        height: 10
+        r: 6,
+        width: 12,
+        height: 12,
+        interval: 3,
     },
     fadeOpacity: .1,
 };

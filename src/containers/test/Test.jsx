@@ -48,6 +48,20 @@ export default class Test extends Component {
                 size: node.important ? 'large' : ''
             };
 
+            if (node.id % 4 === 0) {
+                node.subImage = [
+                    {
+                        image: icon4,
+                    },
+                    {
+                        image: icon2,
+                    },
+                    {
+                        image: icon3,
+                    },
+                ];
+            }
+
             count++;
         });
 

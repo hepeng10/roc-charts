@@ -1,7 +1,8 @@
 import Base from '../core/plugin/Base';
 import { sceneConfig } from '../config/config';
 import { event, isMobile, isScale } from '../utils/mobile';
-import { getElementTop, linePointCoordinate, twoPointsDistance } from '../utils/util';
+import { getElementTop } from '../utils/util';
+import { linePointCoordinate, twoPointsDistance } from '../utils/math';
 
 // 点击空白处高亮所有节点
 export default class ScaleOnMobile extends Base {

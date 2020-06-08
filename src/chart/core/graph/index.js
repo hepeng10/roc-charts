@@ -3,7 +3,10 @@ import gof from 'get-object-field';
 
 import { nodeConfig, linkConfig, textConfig } from '../../config/config';
 import { linefeed } from '../../utils/formatter';
-import { twoPointsAngle, linePointCoordinate, getControlPos, twoPointsDistance, getPointOnBezier, getPointTangentOnBezier } from '../../utils/util';
+import {
+    twoPointsAngle, linePointCoordinate, getControlPos, twoPointsDistance, getPointOnBezier, getPointTangentOnBezier,
+    halfAngle, angleToArclength,
+} from '../../utils/math';
 
 export default {
     circle(node, option = {}) {
@@ -188,16 +191,30 @@ export default {
         return new zr.Text(opt);
     },
 
-    extendIcon(node, options = {}) {
-        let { image, width, height, ...option } = options;
+    subIcon(node, options = {}) {
+        let { image, width, height, interval, index = 0, ...option } = options;
         const nodeR = gof(node, nodeConfig.size.normal.r)('style')('r')();
-        width = width || nodeConfig.extend.width;
-        height = height || nodeConfig.extend.height;
-        const r = nodeConfig.extend.r;
+        width = width || nodeConfig.sub.width;
+        height = height || nodeConfig.sub.height;
+        interval = interval || nodeConfig.sub.interval;
+        const r = nodeConfig.sub.r;
+
+        let node2SubR = nodeR + r + interval;  // 节点到子图标的半径
+        let roundCircleAngle = halfAngle(node2SubR, r + interval / 2);  // 通过半径和间隙计算出两个子图标的夹角的一半
+        let arcLength = angleToArclength(roundCircleAngle, r) * 2;  // 通过角度计算出弧长
+        // 已知弧长、半径求弧度
+        let radian = arcLength * index / r;
+        // 通过弧度求得角度
+        let angle = 180 / Math.PI * radian;
+        angle = angle - 60;  // 0度是正右方，减45度则从右上角开始绘制第一个
+        // 已知圆心位置、半径、角度，计算出子图标的坐标
+        const cx = -r + Math.cos(angle * Math.PI / 180) * node2SubR;
+        const cy = -r + Math.sin(angle * Math.PI / 180) * node2SubR;
+
         const opt = {
             style: {
-                x: nodeR - r,
-                y: -nodeR - r,
+                x: cx,
+                y: cy,
                 width,
                 height,
                 image: image,
@@ -244,7 +261,7 @@ export default {
         // 添加文字
         const [x1, y1] = fromNode.position;
         const [x2, y2] = toNode.position;
-        if (gof(link)('data')('text')() && !gof(link)('style')('hideText')()) {
+        if (link.text && !gof(link)('style')('hideText')()) {
             const textX = (x1 + x2) / 2;
             const textY = (y1 + y2) / 2;
             const text = this.text(linefeed(link.text, 10), { position: [textX, textY], style: { opacity, ...link.style } }, [fromNode.position, toNode.position]);
@@ -316,7 +333,7 @@ export default {
 
         // 添加文字
         const cp2 = getControlPos(p1[0], p1[1], p2[0], p2[1], 10);  // 控制点偏移量的一半作为文字的坐标，文字基本上就在贝塞尔曲线上
-        if (gof(link)('data')('text')()) {
+        if (link.text) {
             const text = this.text(linefeed(link.text, 10), { position: [cp2[0], cp2[1]], style: { opacity, textVerticalAlign: 'middle', ...link.style } }, [fromNode.position, toNode.position]);
             g.add(text);
         }
@@ -369,7 +386,7 @@ export default {
         g.add(triangle);
 
         // 添加文字
-        if (gof(link)('data')('text')() && !gof(link)('style')('hideText')()) {
+        if (link.text && !gof(link)('style')('hideText')()) {
             const textX = (x1 + x2) / 2;
             const textY = (y1 + y2) / 2;
             const text = this.text(linefeed(link.text, 10), { position: [textX, textY], style: { opacity, ...link.style } }, [fromNode.position, toNode.position]);
