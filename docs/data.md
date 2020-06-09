@@ -14,7 +14,6 @@ const data = {
             style: {  // 节点样式
                 image: icon,  // 节点图标 dataURI
                 hide: false,  // 是否隐藏节点
-                background: 'circle|rect',  // 背景样式，默认为 circle。用于节点选中状态边框的绘制，如果节点是方形的就要设置为 rect
                 size: 'small|normal|large',  // 节点的大小，默认为 normal
                 // 节点的大小，优先级高于 size
                 width: 50,

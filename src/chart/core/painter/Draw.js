@@ -34,14 +34,9 @@ export default class Draw extends Base {
         } else {  // 画圆
             nodeGraph = graph.circle(node);
         }
-        if (node.style.background) {
-            if (node.style.background === 'circle') {
-                const circle = graph.circleBG(node);
-                nodeGraph.add(circle);
-            } else {
-                const rect = graph.rectBG(node);
-                nodeGraph.add(rect);
-            }
+        if (node.selected) {
+            const circle = graph.circleBG(node);
+            nodeGraph.add(circle);
         }
 
         // 画 subImage

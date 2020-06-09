@@ -47,13 +47,13 @@ export default class Util extends Base {
     }
 
     // 给节点加边框。这个方法会先清空所有节点的边框
-    select(nodesId, type = 'circle') {
+    select(nodesId) {
         this.$painter.clearAllSelected();
-        this.addSelect(nodesId, type);
+        this.addSelect(nodesId);
     }
     // 这个方法不会清空已有节点的边框
-    addSelect(nodesId, type = 'circle') {
-        this.$painter.select(nodesId, type);
+    addSelect(nodesId) {
+        this.$painter.select(nodesId);
         this.getSelectedNodes();
         this.refresh();
     }

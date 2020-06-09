@@ -209,16 +209,15 @@ export default class Painter extends Base {
     }
 
     // 给节点添加边框，比如做节点选中效果等
-    selectedNode(node, type) {
-        node.style.background = type;
+    selectedNode(node) {
         node.selected = true;
     }
     // 给节点添加边框实现选中状态。type 支持 circle 和 rect
-    select(nodesId = [], type = 'circle') {
+    select(nodesId = []) {
         nodesId.forEach((id) => {
             const node = this.$store.nodesKV[id];
             if (node) {
-                this.selectedNode(node, type);
+                this.selectedNode(node);
             }
         });
     }
@@ -231,7 +230,6 @@ export default class Painter extends Base {
         });
     }
     clearNodeSelected(node) {
-        node.style.background = null;
         node.selected = false;
     }
     clearAllSelected() {
