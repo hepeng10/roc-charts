@@ -1,6 +1,5 @@
 import zr from 'zrender';
 import gof from 'get-object-field';
-import { selectArea } from '../config/config';
 import { event } from '../utils/mobile';
 
 import Base from '../core/plugin/Base';
@@ -15,6 +14,13 @@ export default class LassoSelect extends Base {
     btn;
     points = [];  // 绘制选择框的所有坐标
     selectArea;
+
+    defaultConfig() {
+        return {
+            backgroundColor: 'orange',
+            borderColor: 'red',
+        }
+    }
 
     init() {
         this.initButton();
@@ -85,8 +91,8 @@ export default class LassoSelect extends Base {
                 smooth: 0,
             },
             style: {
-                fill: selectArea.backgroundColor,
-                stroke: selectArea.borderColor,
+                fill: this.config.backgroundColor,
+                stroke: this.config.borderColor,
                 opacity: .5,
             },
             zlevel: 100,

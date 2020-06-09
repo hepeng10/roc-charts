@@ -77,7 +77,10 @@ plugin: {
     changeNodeDrag: {},  // 节点拖拽功能是否启用插件
     fullScreen: {},  // 全屏插件
     hideSelectedNodes: {},  // 隐藏选中节点插件
-    lasso: {},  // 套索工具插件
+    lasso: {  // 套索工具插件
+        backgroundColor: 'orange',
+        borderColor: 'red',
+    },
     reset: {},  // 重置图谱插件
     saveImg: {},  // 保存图谱为图片的插件
     searchNode: {},  // 搜索节点插件

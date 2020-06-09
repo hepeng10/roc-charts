@@ -1,7 +1,7 @@
 import Base from '../core/plugin/Base';
 import { event, getClientXY, isScale } from '../utils/mobile';
 import { isNode } from '../utils/util';
-import { optimizeLinksNum } from '../config/config';
+import { linkConfig } from '../config/config';
 
 // 点击空白处高亮所有节点
 export default class BlankDrag extends Base {
@@ -55,7 +55,7 @@ export default class BlankDrag extends Base {
 
             // 当 links 大于100条时，拖拽时移除线，优化性能
             let { links } = this.$store;
-            optimizeLinks = links.length > optimizeLinksNum;
+            optimizeLinks = links.length > linkConfig.optimize;
         };
 
         const mouseup = () => {

@@ -21,7 +21,6 @@ export const nodeConfig = {
         }
     },
     sub: {
-        show: true,
         r: 6,
     },
     interval: 3,  // name, subImage 等与节点的间隔
@@ -40,12 +39,5 @@ export const linkConfig = {
     lineWidth: 1,
     color: '#F1D07B',
     twoWayColor: '#EE7768',
+    optimize: 200,
 };
-
-// 套索工具颜色
-export const selectArea = {
-    backgroundColor: 'orange',
-    borderColor: 'red',
-};
-
-export const optimizeLinksNum = 200;

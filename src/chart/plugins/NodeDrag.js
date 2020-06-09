@@ -1,5 +1,5 @@
 import Base from '../core/plugin/Base';
-import { optimizeLinksNum } from '../config/config';
+import { linkConfig } from '../config/config';
 import { event, getClientXY, isScale } from '../utils/mobile';
 import { isNode } from '../utils/util';
 
@@ -18,7 +18,7 @@ export default class NodeDrag extends Base {
 
         // 当 links 大于100条时，拖拽时移除线，优化性能
         let { links } = this.$store;
-        const optimizeLinks = links && links.length > optimizeLinksNum;
+        const optimizeLinks = links && links.length > linkConfig.optimize;
 
         const mousemove = (e) => {
             if (isScale(e) || !this.config.drag) {

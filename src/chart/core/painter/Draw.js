@@ -41,9 +41,12 @@ export default class Draw extends Base {
 
         // 画 subImage
         const subImg = gof(node, {})('subImage')();
-        let images = gof(subImg, [])('images')();
+        let images = [];
+        if (!subImg.hide) {
+            images = gof(subImg, [])('images')();
+        }
         images.forEach(img => {
-            img.r = subImg.r;
+            img.r = subImg.r || nodeConfig.sub.r;
         });
         // 配置中开启绘制 extend 图标
         if (this.$chart.config.showExtend && node.extend) {
@@ -55,7 +58,8 @@ export default class Draw extends Base {
         } else if (images[0] && images[0].type === 'extend') {  // 删除 extend 图标
             images.shift();
         }
-        images.forEach((item, i) => {
+        const showImages = images.filter(item => !item.hide);
+        showImages.forEach((item, i) => {
             item.index = i;
             const subIcon = graph.subIcon(node, item);
             nodeGraph.add(subIcon);
@@ -88,10 +92,9 @@ export default class Draw extends Base {
                 linksKV[`${link.from}->${link.to}->directionless`]
                 ||
                 linksKV[`${link.to}->${link.from}->directionless`]
-            )
-        ) {
+            )) {
             link.bothway = true;
-            link.style.stroke = linkConfig.twoWayColor;
+            link.style.stroke = link.style.stroke || linkConfig.twoWayColor;
         }
 
         if (this.$chart.config.dynamicLineWidth) {

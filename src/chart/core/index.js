@@ -1,7 +1,10 @@
 import zrender from 'zrender';
 import gof from 'get-object-field';
+import { merge } from 'lodash';
 
 import '../styles/common.less';
+
+import * as globalConfig from '../config/config'
 
 import Event from './event';
 import Scene from './scene';
@@ -16,6 +19,7 @@ import Util from './util';
 
 class Core {
     zr;
+    globalConfig;
     config;
     domID;
 
@@ -35,6 +39,14 @@ class Core {
     loadingDom;
 
     selectedNodes = [];
+
+    // 修改全局配置
+    static changeConfig(config) {
+        merge(globalConfig.sceneConfig, config.scene);
+        merge(globalConfig.nodeConfig, config.node);
+        merge(globalConfig.linkConfig, config.link);
+        merge(globalConfig.textConfig, config.text);
+    }
 
     static registerChart(chartClass) {
         if (chartClass.chartName) {

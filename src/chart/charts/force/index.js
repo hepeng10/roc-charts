@@ -1,6 +1,6 @@
 import gof from 'get-object-field';
 import layout from './layout';
-import { optimizeLinksNum } from '../../config/config';
+import { linkConfig } from '../../config/config';
 import { event, getClientXY, isScale } from '../../utils/mobile';
 
 import Base from '../../core/chart/Base';
@@ -54,7 +54,7 @@ export default class Force extends Base {
         this.setForce(nodes, links);
 
         // 当 links 大于100条时，拖拽时移除线，优化性能
-        this.optimizeLinks = links && links.length > optimizeLinksNum;
+        this.optimizeLinks = links && links.length > linkConfig.optimize;
 
         this.onTick();
         this.onTickEnd();

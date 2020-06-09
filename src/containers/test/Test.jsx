@@ -26,6 +26,12 @@ function randomString(len) {
 
 let count = 0;
 
+Chart.changeConfig({
+    link: {
+        // color: 'red'
+    }
+});
+
 export default class Test extends Component {
     chart1;
     chart2;
@@ -50,6 +56,7 @@ export default class Test extends Component {
 
             if (node.id % 4 === 0) {
                 node.subImage = {
+                    // hide: true,
                     // r: 10,
                     images: [
                         {
@@ -57,6 +64,7 @@ export default class Test extends Component {
                         },
                         {
                             image: icon2,
+                            hide: Math.random() > .5
                         },
                         {
                             image: icon3,

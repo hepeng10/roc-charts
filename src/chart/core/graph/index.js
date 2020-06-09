@@ -35,10 +35,11 @@ export default {
             const name = this.text(
                 linefeed(node.name, 8),
                 {
-                    position: [0, r],
+                    position: [0, r + nodeConfig.interval],
                     zlevel: 3,
                     style: {
                         opacity: node.style.opacity,
+                        textVerticalAlign: 'top',
                     },
                     ...option
                 }
