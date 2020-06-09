@@ -29,8 +29,6 @@ export const nodeConfig = {
     sub: {
         show: true,
         r: 6,
-        width: 12,
-        height: 12,
         interval: 3,
     },
     fadeOpacity: .1,

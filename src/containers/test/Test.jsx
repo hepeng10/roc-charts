@@ -49,17 +49,20 @@ export default class Test extends Component {
             };
 
             if (node.id % 4 === 0) {
-                node.subImage = [
-                    {
-                        image: icon4,
-                    },
-                    {
-                        image: icon2,
-                    },
-                    {
-                        image: icon3,
-                    },
-                ];
+                node.subImage = {
+                    // r: 10,
+                    images: [
+                        {
+                            image: icon4,
+                        },
+                        {
+                            image: icon2,
+                        },
+                        {
+                            image: icon3,
+                        },
+                    ]
+                };
             }
 
             count++;

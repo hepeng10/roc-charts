@@ -192,12 +192,9 @@ export default {
     },
 
     subIcon(node, options = {}) {
-        let { image, width, height, interval, index = 0, ...option } = options;
+        let { image, r = nodeConfig.sub.r, interval, index = 0, ...option } = options;
         const nodeR = gof(node, nodeConfig.size.normal.r)('style')('r')();
-        width = width || nodeConfig.sub.width;
-        height = height || nodeConfig.sub.height;
         interval = interval || nodeConfig.sub.interval;
-        const r = nodeConfig.sub.r;
 
         let node2SubR = nodeR + r + interval;  // 节点到子图标的半径
         let roundCircleAngle = halfAngle(node2SubR, r + interval / 2);  // 通过半径和间隙计算出两个子图标的夹角的一半
@@ -215,8 +212,8 @@ export default {
             style: {
                 x: cx,
                 y: cy,
-                width,
-                height,
+                width: 2 * r,
+                height: 2 * r,
                 image: image,
                 opacity: node.style.opacity,
             },

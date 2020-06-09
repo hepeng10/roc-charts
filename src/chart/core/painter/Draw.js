@@ -1,4 +1,5 @@
 import zr from 'zrender';
+import gof from 'get-object-field';
 import Base from '../Base';
 import graph from '../graph';
 import extendSVG from '../../images/extension.svg';
@@ -44,20 +45,22 @@ export default class Draw extends Base {
         }
 
         // 画 subImage
-        let subImg;
-        const hasSubImg = node.subImage && node.subImage.length;
-        subImg = hasSubImg ? node.subImage : [];
-        // 配置中开启绘制扩展图标
+        const subImg = gof(node, {})('subImage')();
+        let images = gof(subImg, [])('images')();
+        images.forEach(img => {
+            img.r = subImg.r;
+        });
+        // 配置中开启绘制 extend 图标
         if (this.$chart.config.showExtend && node.extend) {
-            if (hasSubImg) {  // subImage 有的，要让扩展图标大小和 subImage 的一致
-                subImg.unshift({ ...node.subImage[0], image: extendSVG, type: 'extend' });  // 扩展标识排在第一位
+            if (images.length) {  // subImage 有的，要让 extend 图标大小和 subImage 的一致
+                images.unshift({ ...subImg.images[0], image: extendSVG, type: 'extend' });  //  extend 标识排在第一位
             } else {
-                subImg.unshift({ image: extendSVG, type: 'extend' });
+                images.unshift({ image: extendSVG, type: 'extend' });
             }
-        } else if (subImg[0] && subImg[0].type === 'extend') {  // 删除 extend 图标
-            subImg.shift();
+        } else if (images[0] && images[0].type === 'extend') {  // 删除 extend 图标
+            images.shift();
         }
-        subImg.forEach((item, i) => {
+        images.forEach((item, i) => {
             item.index = i;
             const subIcon = graph.subIcon(node, item);
             nodeGraph.add(subIcon);

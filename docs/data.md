@@ -22,11 +22,12 @@ const data = {
                 // 其它 zrender 的样式，详见：https://ecomfe.github.io/zrender-doc/public/api.html#zrenderdisplayable 表格里的 opts.style
                 ...otherZrenderStyle
             },
-            subImage: [{  // 节点右上角图标
-                image: subIcon,  // 图标 dataURI
-                width: 10,  // width, height 可不传，默认大小和 extend 相同
-                height: 10
-            }],
+            subImage: {  // 节点右上角图标
+                r: 10,  // 半径，可不传，默认大小和 extend 相同
+                images: [{  // 图标为数组，可显示多个
+                    image: subIcon,  // 图标 dataURI
+                }]
+            },
             // 其它属性，主要是一些图算法需要用到，比如圈层图中心节点需要设置 target: true
             ...otherAttr
         }
