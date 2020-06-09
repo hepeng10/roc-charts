@@ -82,8 +82,8 @@ export default {
         const g = new zr.Group();
         g.source = node;
 
-        const width = gof(node, nodeConfig.size.normal.width)('style')('width')() + 5;
-        const height = gof(node, nodeConfig.size.normal.height)('style')('height')() + 5;
+        const width = gof(node)('style')('width')() + 5;
+        const height = gof(node)('style')('height')() + 5;
 
         const opt = {
             source: node,  // 自定义属性
@@ -112,16 +112,14 @@ export default {
         const g = new zr.Group();
         g.source = node;
 
-        const width = gof(node, nodeConfig.size.normal.width)('style')('width')();
-        const height = gof(node, nodeConfig.size.normal.height)('style')('height')();
-        // const r = gof(node, nodeConfig.size.normal.r)('style')('r')();
+        const r = gof(node, nodeConfig.size.normal.r)('style')('r')();
         const imgOpt = {
             source: node,  // 自定义属性
             style: {
-                x: -width / 2,
-                y: -height / 2,
-                width,
-                height,
+                x: -r,
+                y: -r,
+                width: r * 2,
+                height: r * 2,
                 ...node.style
             },
             zlevel: 3,
@@ -135,7 +133,7 @@ export default {
             const name = this.text(
                 linefeed(node.name, 8),
                 {
-                    position: [0, height / 2],
+                    position: [0, r + nodeConfig.interval],
                     zlevel: 4,
                     style: {
                         opacity: node.style.opacity,
@@ -194,7 +192,7 @@ export default {
     subIcon(node, options = {}) {
         let { image, r = nodeConfig.sub.r, interval, index = 0, ...option } = options;
         const nodeR = gof(node, nodeConfig.size.normal.r)('style')('r')();
-        interval = interval || nodeConfig.sub.interval;
+        interval = interval || nodeConfig.interval;
 
         let node2SubR = nodeR + r + interval;  // 节点到子图标的半径
         let roundCircleAngle = halfAngle(node2SubR, r + interval / 2);  // 通过半径和间隙计算出两个子图标的夹角的一半

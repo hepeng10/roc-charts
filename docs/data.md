@@ -15,9 +15,8 @@ const data = {
                 image: icon,  // 节点图标 dataURI
                 hide: false,  // 是否隐藏节点
                 size: 'small|normal|large',  // 节点的大小，默认为 normal
-                // 节点的大小，优先级高于 size
-                width: 50,
-                height: 50,
+                // 节点的半径，优先级高于 size
+                r: 30,
                 // 其它 zrender 的样式，详见：https://ecomfe.github.io/zrender-doc/public/api.html#zrenderdisplayable 表格里的 opts.style
                 ...otherZrenderStyle
             },

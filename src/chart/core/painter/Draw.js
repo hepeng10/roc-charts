@@ -91,7 +91,7 @@ export default class Draw extends Base {
             )
         ) {
             link.bothway = true;
-            link.style.stroke = linkConfig.bothWayColor;
+            link.style.stroke = linkConfig.twoWayColor;
         }
 
         if (this.$chart.config.dynamicLineWidth) {
