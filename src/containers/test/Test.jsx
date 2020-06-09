@@ -9,7 +9,7 @@ import icon2 from '@images/node/head2.svg';
 import icon3 from '@images/node/head3.svg';
 import icon4 from '@images/node/head4.svg';
 import icon5 from '@images/node/head5.svg';
-import watermarkPNG from '@images/watermark.png';
+import watermark from '@images/watermark.png';
 
 import data from './graph.js';
 
@@ -98,7 +98,7 @@ export default class Test extends Component {
                 core: {
                     animation: false,
                     watermark: {
-                        image: watermarkPNG,
+                        image: watermark,
                         width: 300,
                         height: 300,
                     },
@@ -129,7 +129,7 @@ export default class Test extends Component {
                 core: {
                     // animation: false,
                     watermark: {
-                        image: watermarkPNG,
+                        image: watermark,
                         width: 300,
                         height: 300,
                     },

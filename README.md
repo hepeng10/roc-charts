@@ -1,5 +1,5 @@
 ## 关于此框架
-此框架基于 zrender 开发，用于展示节点之间的关系。关系的呈现（图谱布局）主要还是由使用者决定，可以很简单的将自己的布局算法加入到此框架中，而框架更多的作用是实现图谱操作功能，此框架内置了一些常用功能，也提供了插件机可供开发更多功能。
+此框架基于 zrender 开发，用于展现节点之间的关系。关系的呈现（图谱布局）主要还是由使用者决定，可以很简单的将自己的布局算法加入到此框架中，而框架更多的作用是实现图谱操作功能，此框架内置了一些常用功能，也提供了插件机可供开发更多功能。
   
 ![](./chart.png)  
 
@@ -59,7 +59,7 @@ const chartData = {
 ```javascript
 import Chart, { ChartBase } from 'roc-charts';
 
-// 创建自己算法类，继承 ChartBase，通过 compute 方法计算坐标
+// 创建自己的图谱布局类。继承 ChartBase，通过 compute 方法计算坐标
 class CustomChart extends ChartBase {
     // 必须的静态属性，图谱中会用到
     static chartName = 'customChart';  // 设置图谱的名称，初始化图谱及切换图谱使用
@@ -77,7 +77,7 @@ class CustomChart extends ChartBase {
         });
     }
 }
-// 通过 registerChart 方法注册自定义图谱即可使用
+// 通过 registerChart 方法注册自定义图谱布局即可使用
 Chart.registerChart(CustomChart);
 
 const chart = new Chart({

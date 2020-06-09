@@ -8,7 +8,7 @@ export default {
     output: {
         publicPath: '/',
         path: path.join(__dirname, 'lib'),
-        filename: 'RChart.js',
+        filename: 'RCharts.js',
         libraryTarget: 'umd',
         umdNamedDefine: true,
     },

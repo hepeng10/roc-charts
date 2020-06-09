@@ -50,12 +50,14 @@ export default class Draw extends Base {
         });
         // 配置中开启绘制 extend 图标
         if (this.$chart.config.showExtend && node.extend) {
-            if (images.length) {  // subImage 有的，要让 extend 图标大小和 subImage 的一致
-                images.unshift({ ...subImg.images[0], image: extendSVG, type: 'extend' });  //  extend 标识排在第一位
-            } else {
-                images.unshift({ image: extendSVG, type: 'extend' });
+            if (gof(images[0])('type')() !== 'extend') {  // 第一个图标不是 extend 的才添加 extend，否则每次渲染都会添加 extend
+                if (images.length) {  // subImage 有的，要让 extend 图标大小和 subImage 的一致
+                    images.unshift({ ...subImg.images[0], image: extendSVG, type: 'extend' });  //  extend 标识排在第一位
+                } else {
+                    images.unshift({ image: extendSVG, type: 'extend' });
+                }
             }
-        } else if (images[0] && images[0].type === 'extend') {  // 删除 extend 图标
+        } else if (gof(images[0])('type')() === 'extend') {  // 删除 extend 图标
             images.shift();
         }
         const showImages = images.filter(item => !item.hide);
