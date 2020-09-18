@@ -58,8 +58,8 @@ export default class Base {
     }
 
     // 提供给图谱 charts 的方法，用来修改 store 并画图
-    setStore(store, strengthen = false) {
-        this.$chart.setStore(store, strengthen);
+    setStore(store, enhancer = false) {
+        this.$chart.setStore(store, enhancer);
         this.$chart.render();
     }
 

@@ -147,9 +147,9 @@ class Core {
             // 深拷贝一份 data 作为 originStore
             this.originStore = JSON.parse(JSON.stringify(this.store));
             // 强化 store
-            const strengthen = this.strengthenNodesLinks(this.store.nodes, this.store.links);
-            for (let k in strengthen) {
-                this.store[k] = strengthen[k];
+            const enhancer = this.enhancerNodesLinks(this.store.nodes, this.store.links);
+            for (let k in enhancer) {
+                this.store[k] = enhancer[k];
             }
         } else {
             this.originStore = this.store;
@@ -193,7 +193,7 @@ class Core {
     }
 
     // 强化 nodes 和 links 的数据结构。返回 { nodesKV, nodesDegree, linksKV }
-    strengthenNodesLinks(nodes = [], links = []) {
+    enhancerNodesLinks(nodes = [], links = []) {
         const center = this.scene.getCenter();
 
         let nodesKV = {};
@@ -334,9 +334,9 @@ class Core {
     }
     // 接收新的 data
     // 当传入的 data 为强化后的 data 时，则第二个参数传 false。不再强化
-    setStore(data, strengthen = true) {
+    setStore(data, enhancer = true) {
         this.store = data;
-        if (strengthen) {
+        if (enhancer) {
             this._initStore(data);
         }
     }
