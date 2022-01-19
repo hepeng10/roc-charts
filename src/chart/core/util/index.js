@@ -193,34 +193,34 @@ export default class Util extends Base {
         visitedNodes.push(sourceId);
 
         outer:
-            while (degreeNodes[degree][index]) {
+        while (degreeNodes[degree][index]) {
 
-                degreeNodes[degree + 1] = degreeNodes[degree + 1] || [];  // 初始化下一度
+            degreeNodes[degree + 1] = degreeNodes[degree + 1] || [];  // 初始化下一度
 
-                const node = nodesKV[degreeNodes[degree][index]];
-                const neighborNodes = [...node.children || [], ...node.parents || []];
+            const node = nodesKV[degreeNodes[degree][index]];
+            const neighborNodes = [...node.children || [], ...node.parents || []];
 
-                for (let i = 0; i < neighborNodes.length; i++) {
-                    const id = neighborNodes[i];
-                    // 如果找到了，则退出
-                    if (id === targetId) {
-                        nodesParent[id] = degreeNodes[degree][index];  // 记录目标节点的父节点是谁
-                        break outer;
-                    } else if (!visitedNodes.includes(id)) {  // 如果没有找到，并且这个节点没有访问过，则把它添加到下一度中
-                        visitedNodes.push(id);
-                        degreeNodes[degree + 1].push(id);
-                        nodesParent[id] = degreeNodes[degree][index];
-                    }
-                }
-
-                // 如果当前节点后面还有节点，则查找后一个节点
-                if (degreeNodes[degree][index + 1]) {
-                    index++;
-                } else {
-                    degree++;
-                    index = 0;
+            for (let i = 0; i < neighborNodes.length; i++) {
+                const id = neighborNodes[i];
+                // 如果找到了，则退出
+                if (id === targetId) {
+                    nodesParent[id] = degreeNodes[degree][index];  // 记录目标节点的父节点是谁
+                    break outer;
+                } else if (!visitedNodes.includes(id)) {  // 如果没有找到，并且这个节点没有访问过，则把它添加到下一度中
+                    visitedNodes.push(id);
+                    degreeNodes[degree + 1].push(id);
+                    nodesParent[id] = degreeNodes[degree][index];
                 }
             }
+
+            // 如果当前节点后面还有节点，则查找后一个节点
+            if (degreeNodes[degree][index + 1]) {
+                index++;
+            } else {
+                degree++;
+                index = 0;
+            }
+        }
 
         // 通过目标节点的父节点，层层追溯找到起点，得到最短路径
         let nodeId;
