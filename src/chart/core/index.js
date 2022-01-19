@@ -224,7 +224,7 @@ class Core {
             nodesDegree[degree].push(node);
         });
 
-        let linksKV  = {};
+        let linksKV = {};
         // 通过遍历 links，给 nodes 添加 children
         links.forEach((link) => {
             link.category = 'link';

@@ -63,7 +63,7 @@ function mergeCanvas() {
     ctx.fillRect(0, 0, w, h);
 
     let allCanvas = div.querySelectorAll('canvas');
-    for(let i = 0; i < allCanvas.length; i++){
+    for (let i = 0; i < allCanvas.length; i++) {
         ctx.drawImage(allCanvas[i], 0, 0, w, h);
     }
 
@@ -80,7 +80,7 @@ function toDataURL(cb) {
     }, 1000 + (chart.store.nodes.length + chart.store.links.length) / 2);
 }
 
-export default function chart2img(originChart, cb = () => {}) {
+export default function chart2img(originChart, cb = () => { }) {
     chart = originChart;
     box = getNodesBox(chart.store.nodes);
 

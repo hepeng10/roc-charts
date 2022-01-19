@@ -66,7 +66,7 @@ function mergeCanvas(bgcolor = '#fff') {
     ctx.fillRect(0, 0, w, h);
 
     let allCanvas = div.querySelectorAll('canvas');
-    for(let i = 0; i < allCanvas.length; i++){
+    for (let i = 0; i < allCanvas.length; i++) {
         ctx.drawImage(allCanvas[i], 0, 0, w, h);
     }
 
@@ -96,7 +96,7 @@ function save(cb) {
     }, 1000 + (chart.store.nodes.length + chart.store.links.length) / 2);
 }
 
-export default function saveImg(originChart, cb = () => {}) {
+export default function saveImg(originChart, cb = () => { }) {
     chart = originChart;
     box = getNodesBox(chart.store.nodes);
 

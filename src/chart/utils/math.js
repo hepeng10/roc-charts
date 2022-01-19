@@ -61,10 +61,10 @@ export const getNodesBox = nodes => {
         x1 = -Infinity,
         y1 = -Infinity;
     nodes.forEach(node => {
-        if (node.position[0] < x0) {x0 = node.position[0];}
-        if (node.position[0] > x1) {x1 = node.position[0];}
-        if (node.position[1] < y0) {y0 = node.position[1];}
-        if (node.position[1] > y1) {y1 = node.position[1];}
+        if (node.position[0] < x0) { x0 = node.position[0]; }
+        if (node.position[0] > x1) { x1 = node.position[0]; }
+        if (node.position[1] < y0) { y0 = node.position[1]; }
+        if (node.position[1] > y1) { y1 = node.position[1]; }
     });
     return {
         x: x0,

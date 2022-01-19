@@ -14,7 +14,7 @@ let isInit = false;
     }
     isInit = true;
 
-    if(/Android|webOS|iPhone|iPad|BlackBerry/i.test(window.navigator.userAgent)) {
+    if (/Android|webOS|iPhone|iPad|BlackBerry/i.test(window.navigator.userAgent)) {
         isMobile = true;
         event = {
             mousedown: 'touchstart',
